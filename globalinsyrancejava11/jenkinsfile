@@ -19,6 +19,36 @@ stages{
                     }
                 
           }
+
+           stage('Maven Test'){
+                    steps{
+                        script{
+                               try{
+                                    sh "mvn -f ./globalinsyrancejava11/pom.xml test"
+                               }
+                               catch(all){
+                                    echo "Test stage Failed"
+                               }
+                        }
+                    }
+                
+          }
+
+         stage('Maven Code Review'){
+                    steps{
+                        script{
+                               try{
+                                    sh "mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.username=admin -Dsonar.password=vigneshbala"
+                               }
+                               catch(all){
+                                    echo "Review stage Failed"
+                               }
+                        }
+                    }
+                
+          }
+ 
+
     }
 }
                      
