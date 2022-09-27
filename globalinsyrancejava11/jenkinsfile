@@ -10,7 +10,7 @@ stages{
                     steps{
                         script{
                                try{
-                                    sh "mvn -f pom.xml clean install"
+                                    sh "mvn -f ./globalinsyrancejava11/pom.xml clean install"
                                }
                                catch(all){
                                     echo "Build stage Failed"
