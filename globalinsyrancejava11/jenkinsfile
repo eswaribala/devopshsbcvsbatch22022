@@ -38,7 +38,7 @@ stages{
                     steps{
                         script{
                                try{
-                                    sh "mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.username=admin -Dsonar.password=vigneshbala"
+                                    sh "mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=vigneshbala -P sonar"
                                }
                                catch(all){
                                     echo "Review stage Failed"
